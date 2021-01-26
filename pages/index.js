@@ -1,22 +1,13 @@
 import styled from 'styled-components'
 import db from '../db.json'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
 import Widget from '../source/components/Widget'
 import Footer from '../source/components/Footer'
 import GitHubCorner from '../source/components/GitHubCorner'
 import QuizBackground from '../source/components/QuizBackground'
 
 
-const Title = styled.h1`
-  font-size: 50px;
-  color: ${({ theme }) => theme.colors.primary};
-`
-
-const BackgroundImage = styled.div`
-  background-image: url(${db.bg});
-  flex: 1;
-  background-size: cover;
-  background-position: center;
-`
 export const QuizContainer = styled.div`
   width: 100%;
   max-width: 350px;
@@ -29,8 +20,14 @@ export const QuizContainer = styled.div`
 `;
 
 export default function Home() {
+  const router = useRouter()
+  const [name, setName] = React.useState('')
+  
   return (
     <QuizBackground backgroundImage={db.bg}>
+      <Head>
+        <title>RhynoQuiz - Alura</title>
+      </Head>
       <QuizContainer>
         <Widget>
           <Widget.Header>
@@ -38,7 +35,18 @@ export default function Home() {
           </Widget.Header>
 
           <Widget.Content>
-            <p>Lorem Ipsum sit Amet...</p>
+            <form onSubmit={function (e) {
+              e.preventDefault()
+              router.push(`Quiz?name=${name}`)
+              console.log("Teste Abnner davi")
+            }}>
+              <input placeholde="Nome..." onChange={function (e) {
+                setName(e.target.value)
+              }}/>
+              <button type="submit" disabled={name.length === 0}>
+                Jogar {name}
+              </button>
+            </form>
           </Widget.Content>
         </Widget>
 
