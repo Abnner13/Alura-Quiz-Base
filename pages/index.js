@@ -6,33 +6,15 @@ import Widget from '../source/components/Widget'
 import Footer from '../source/components/Footer'
 import QuizLogo from '../source/components/QuizLogo'
 // import InputName from '../source/components/InputName'
+import Input from '../source/components/Input'
 import PlayButton from '../source/components/PlayButton'
 import GitHubCorner from '../source/components/GitHubCorner'
 import QuizBackground from '../source/components/QuizBackground'
+import QuizContainer from '../source/components/QuizContainer'
 
 
-export const QuizContainer = styled.div`
-  width: 100%;
-  max-width: 350px;
-  padding-top: 45px;
-  margin: auto 10%;
-  @media screen and (max-width: 500px) {
-    margin: auto;
-    padding: 15px;
-  }
-`;
-export const InputName = styled.input`
-  border-radius:  ${({ theme }) => theme.borderRadius};
-  border-color:   ${({ theme }) => theme.colors.secondary};
-  background:     ${({ theme }) => theme.colors.mainBg};
-  color:          ${({ theme }) => theme.colors.contrastText};
 
-  height: 3.3em;
-  width: 20.2em;
-  padding: 8px;
-  margin-bottom: 2em;
-  outline: none;
-`;
+
 export const Wrapper = styled.div`
   border-radius:  ${({ theme }) => theme.borderRadius};
   background:     ${({ theme }) => theme.colors.third};
@@ -64,11 +46,13 @@ export default function Home() {
               router.push(`Quiz?name=${name}`)
               console.log("Teste Abnner davi")
             }}>
-              <InputName
+              <Input
                 placeholder="Diz seu nome..."
+                onChange={(e) => setName(e.target.value)}
+                name="NomeDoUsuario"
                 maxLength="20"
-                onChange={(e) => setName(e.target.value)
-              }/>
+                value={name}
+              />
               <PlayButton type="submit" disabled={!name}>
                 Jogar {name}
               </PlayButton>
