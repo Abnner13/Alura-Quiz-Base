@@ -5,9 +5,8 @@ import { useRouter } from 'next/router'
 import Widget from '../source/components/Widget'
 import Footer from '../source/components/Footer'
 import QuizLogo from '../source/components/QuizLogo'
-// import InputName from '../source/components/InputName'
 import Input from '../source/components/Input'
-import PlayButton from '../source/components/PlayButton'
+import Button from '../source/components/Button'
 import GitHubCorner from '../source/components/GitHubCorner'
 import QuizBackground from '../source/components/QuizBackground'
 import QuizContainer from '../source/components/QuizContainer'
@@ -53,9 +52,9 @@ export default function Home() {
                 maxLength="20"
                 value={name}
               />
-              <PlayButton type="submit" disabled={!name}>
+              <Button type="submit" disabled={!name}>
                 Jogar {name}
-              </PlayButton>
+              </Button>
             </form>
           </Widget.Content>
         </Widget>

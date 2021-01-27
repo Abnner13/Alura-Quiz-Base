@@ -4,7 +4,7 @@ import Widget from '../source/components/Widget'
 import QuizLogo from '../source/components/QuizLogo'
 import QuizBackground from '../source/components/QuizBackground'
 import QuizContainer from '../source/components/QuizContainer'
-import PlayButton from '../source/components/PlayButton'
+import Button from '../source/components/Button'
 
 
 function LoadingWidget() {
@@ -12,18 +12,19 @@ function LoadingWidget() {
         <Widget>
             <Widget.Header>
                 Carregando...
-            </Widget.Header>
+      </Widget.Header>
+
             <Widget.Content>
-                [Desafio de Loading]
-            </Widget.Content>
+                [Desafio do Loading]
+      </Widget.Content>
         </Widget>
-    )
+    );
 }
 
 function QuestionWidget({
     question,
     questionIndex,
-    totalQuestion,
+    totalQuestions,
     onSubmit
 }) {
     const questionId = `question__${questionIndex}`
@@ -31,8 +32,8 @@ function QuestionWidget({
         <Widget>
             <Widget.Header>
                 <h3>
-                    {`Pergunta ${questionIndex +1} de ${totalQuestion}`}
-                    
+                    {`Pergunta ${questionIndex + 1} de ${totalQuestions}`}
+
                 </h3>
             </Widget.Header>
             <img 
@@ -43,7 +44,7 @@ function QuestionWidget({
             <Widget.Content>
 
                 <h2>{question.title}</h2>
-                
+
                 <p>{question.description}</p>
 
                 <form onSubmit={(e) => {
@@ -67,55 +68,55 @@ function QuestionWidget({
                         );
                     })}
 
-                    <PlayButton type="submit">Confirmar</PlayButton>
+                    <Button type="submit">Confirmar</Button>
                 </form>
             </Widget.Content>
         </Widget>
     )
 }
 
-const screenStates = {
+const screenStates = { 
     QUIZ: 'QUIZ',
     LOADING: 'LOADING',
     RESULT: 'RESULT'
 }
 
-export default function QuizPage() {
-    const [screenState, setScreenState] = React.useState(screenStates.LOADING); // Aqui é o primeiro estado do widget
+export default function QuizPageAlura() {
+    const [screenState, setScreenState] = React.useState(screenStates.LOADING);// Aqui é o primeiro estado do widget
     const [currentQuestion, setCurrentQuestion] = React.useState(0);
-    const totalQuestion = db.questions.length;
+    const totalQuestions = db.questions.length;
     const questionIndex = currentQuestion;
     const question = db.questions[questionIndex];
 
     React.useEffect(() => {
-        setTimeout(()=> {
-            setScreenState(setScreenState.QUIZ) // Aqui mudamos o estado do Widget
-        }, 1 * 1000)
-    
-    //nasce === didMount
+
+        //seria a requisição ao back-end
+        setTimeout(() => {
+          setScreenState(screenStates.QUIZ) // Aqui mudamos o estado do Widget
+        }, 1 * 1000) 
+        
     }, [])
 
     function handleSubmitQuiz() {
-        const nextQuestion = questionIndex + 1; 
-        if(nextQuestion < totalQuestion) {
+        const nextQuestion = questionIndex + 1;
+        if (nextQuestion < totalQuestions) {
             setCurrentQuestion(nextQuestion);
-        }
-        else {
-            setCurrentQuestion(screenStates.RESULT);
+        } else {
+            setScreenState(screenStates.RESULT);
         }
     }
 
-    return(
+    return( 
         <QuizBackground backgroundImage={db.bg}>
             <QuizContainer>
             <QuizLogo/>
-                
+
                 {screenState === screenStates.QUIZ && 
                 (
                     <QuestionWidget 
                         question={question}
                         questionIndex={questionIndex}
-                        totalQuestion={totalQuestion}
+                        totalQuestions={totalQuestions}
                         onSubmit={handleSubmitQuiz}
                     />
                 )}
@@ -126,4 +127,6 @@ export default function QuizPage() {
             </QuizContainer>
         </QuizBackground>
     )
+
+    
 }
