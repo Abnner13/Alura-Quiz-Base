@@ -4,26 +4,64 @@
     "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
     "questions": [
         {
-        "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-        "title": "Como fazer um seletor por id via CSS?",
-        "description": "Essa é pra aquecer",
-        "answer": 2,
-        "alternatives": [
-            ".elemento",
-            "*elemento",
-            "#elemento",
-            "%elemento"
-        ]
+            "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
+            "title": "Os rinocerontes podem chegar a uma velocidade de até: ",
+            "description": "Nem sempre tamanho é documento",
+            "answer": 4,
+            "alternatives": [
+                "40 km/h",
+                "35 km/h",
+                "60 km/h",
+                "50 km/h"
+            ]
         },
         {
-        "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-        "title": "Como fazer um background gradiente com css?",
-        "description": "Faz tempo em haha",
-        "answer": 0,
-        "alternatives": [
-            "background: linear-gradient(#e66465, #9198e5);",
-            "background: gradient(#e66465, #9198e5);"
-        ]
+            "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
+            "title": "Seus chifres NÃO são feitos de osso, e sim de uma propiedade, que é o principal ingrediente dos nossos cabelos e unhas.",
+            "description": "O segredo dos chifres",
+            "answer": 4,
+            "alternatives": [
+                "Cartilagem",
+                "Ferro",
+                "Adamantil",
+                "Queratina"
+            ]
+        },
+        {
+            "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
+            "title": "Rinocerontes vivem entre __ e __anos em média",
+            "description": "O tempo de vida",
+            "answer": 0,
+            "alternatives": [
+                "35 a 40",
+                "15 e 25",
+                "55 e 65",
+                "40 e 50"
+            ]
+        },
+        {
+            "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
+            "title": "Infelizmente, os chifres de rinoceronte são altamente cobiçados e podem ser mais valorizados do que o ouro em algumas partes do mundo. ____________ acredita que esses chifres carregam propriedades curativas e também são usados como afrodisíaco.",
+            "description": "Propriedades curativas",
+            "answer": 3,
+            "alternatives": [
+                "A medicina tradicional Indiana",
+                "A medicina tradicional do Egito",
+                "A medicina tradicional Chinesa",
+                "A medicina tradicional Mongol"
+            ]
+        },
+        {
+            "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
+            "title": "A pele de rinoceronte é incrivelmente grossa e resistente, mas curiosamente é sensível a _____. Por isso, esses animais se afundam na lama para proteger sua pele.",
+            "description": "Pele grossa e resistente",
+            "answer": 0,
+            "alternatives": [
+                "Queimaduras solares e picadas de insetos",
+                "Frio e Coices",
+                "Poeira e Tempestade de Areia",
+                "Mordidas de outros animais"
+            ]
         }
     ],
     "external": [
