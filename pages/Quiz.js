@@ -5,6 +5,7 @@ import QuizLogo from '../source/components/QuizLogo'
 import QuizBackground from '../source/components/QuizBackground'
 import QuizContainer from '../source/components/QuizContainer'
 import Button from '../source/components/Button'
+import Result from '../source/components/Result'
 
 
 function LoadingWidget() {
@@ -20,6 +21,8 @@ function LoadingWidget() {
         </Widget>
     );
 }
+
+
 
 function QuestionWidget({
     question,
@@ -123,7 +126,7 @@ export default function QuizPageAlura() {
 
                 {screenState === screenStates.LOADING && <LoadingWidget/>}
 
-                {screenState === screenStates.RESULT && <div>Voce acertou x questoes</div>}
+                {screenState === screenStates.RESULT && <Result />}
             </QuizContainer>
         </QuizBackground>
     )
