@@ -1,12 +1,11 @@
 import React from 'react'
 import db from '../db.json'
+import Button from '../source/components/Button'
 import Widget from '../source/components/Widget'
 import QuizLogo from '../source/components/QuizLogo'
-import QuizBackground from '../source/components/QuizBackground'
 import QuizContainer from '../source/components/QuizContainer'
-import Button from '../source/components/Button'
-import Result from '../source/components/Result'
-
+import QuizBackground from '../source/components/QuizBackground'
+import AlternativesForm from '../source/components/AlternativeForm'
 
 function LoadingWidget() {
     return (
@@ -22,15 +21,47 @@ function LoadingWidget() {
     );
 }
 
+function ResultWidget(props) {
+    return (
+        <Widget>
+            <Widget.Header>
+                Voce acertou
+                {' '}
+                  {props.results.filter((result) => result).length}
+                {' '}
+                Perguntas
+
+            </Widget.Header>
+
+            <Widget.Content>
+                <ul>
+                    {
+                        props.results.map((result, index) => {
+                            return<li key={`result___${result}`}>
+                                #{index + 1} RESULT: {result ? 'Acertou': 'Errou'}
+                            </li>
+                        })
+                    }
+                </ul>
+            </Widget.Content>
+        </Widget>
+    );
+}
+
 
 
 function QuestionWidget({
     question,
     questionIndex,
     totalQuestions,
-    onSubmit
+    onSubmit,
+    addResult
 }) {
     const questionId = `question__${questionIndex}`
+    const [selectedAlternative, setSelectedAlternative] = React.useState(undefined)
+    const [isQuestionSubmited, setIsQuestionSubmited] = React.useState(undefined)
+    const isCorrect = selectedAlternative === question.answer;
+    const hasAlternativeSelected = selectedAlternative !== undefined;
     return (
         <Widget>
             <Widget.Header>
@@ -50,29 +81,46 @@ function QuestionWidget({
 
                 <p>{question.description}</p>
 
-                <form onSubmit={(e) => {
+                <AlternativesForm onSubmit={(e) => {
                     e.preventDefault();
-                    onSubmit();
+                    setIsQuestionSubmited(true) // questao enviada
+                    setTimeout(() => {
+                        onSubmit();
+                        addResult(isCorrect)
+                        setIsQuestionSubmited(false) //setando pra false pra que a 
+                                                     //proxima question nao fique com o estado anterior
+                        setSelectedAlternative(undefined) // anulando a escolha da alternativa anterior
+                    }, 2 * 1000)
                 }}>
                     {question.alternatives.map((alternative, alternativeIndex) => {
-                        const alternativeId = `alternative__${alternativeIndex}`
+                        const alternativeId = `alternative__${alternativeIndex}`;
+                        const alternativeStatus  = isCorrect ? 'SUCCESS' : 'ERROR';
+                        const isSelected = selectedAlternative === alternativeIndex;
+
                         return (
                             <Widget.Topic 
                                 as="label"
+                                key={alternativeId}
                                 htmlFor={alternativeId}
+                                data-selected={isSelected}
+                                data-status={isQuestionSubmited && alternativeStatus}
                             >
                             <input 
-                                // style={{display: 'none'}}
+                                style={{display: 'none'}}
+                                type="radio"
                                 id={alternativeId} 
-                                type="radio" 
-                                name={questionId}/>
+                                name={questionId}
+                                onChange={() => setSelectedAlternative(alternativeIndex)}
+                                />
                             {alternative}
                             </Widget.Topic >
                         );
                     })}
 
-                    <Button type="submit">Confirmar</Button>
-                </form>
+                    <Button type="submit" disabled={!hasAlternativeSelected}>Confirmar</Button>
+                    { isQuestionSubmited && isCorrect && <p>Voce Acertou</p>}
+                    { isQuestionSubmited && !isCorrect && <p>Voce Errou</p>}
+                </AlternativesForm>
             </Widget.Content>
         </Widget>
     )
@@ -87,12 +135,16 @@ const screenStates = {
 export default function QuizPageAlura() {
     const [screenState, setScreenState] = React.useState(screenStates.LOADING);// Aqui é o primeiro estado do widget
     const [currentQuestion, setCurrentQuestion] = React.useState(0);
+    const [results, setResults] = React.useState([]);
     const totalQuestions = db.questions.length;
     const questionIndex = currentQuestion;
     const question = db.questions[questionIndex];
 
-    React.useEffect(() => {
+    function addResult(result) {
+        setResults([...results, result])
+    }
 
+    React.useEffect(() => {
         //seria a requisição ao back-end
         setTimeout(() => {
           setScreenState(screenStates.QUIZ) // Aqui mudamos o estado do Widget
@@ -121,12 +173,13 @@ export default function QuizPageAlura() {
                         questionIndex={questionIndex}
                         totalQuestions={totalQuestions}
                         onSubmit={handleSubmitQuiz}
+                        addResult={addResult}
                     />
                 )}
 
                 {screenState === screenStates.LOADING && <LoadingWidget/>}
 
-                {screenState === screenStates.RESULT && <Result />}
+                {screenState === screenStates.RESULT && <ResultWidget results={results}/>}
             </QuizContainer>
         </QuizBackground>
     )
