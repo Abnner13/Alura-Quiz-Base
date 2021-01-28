@@ -1,9 +1,9 @@
 import React from 'react'
 import db from '../db.json'
-import Answer from '../source/components/Answer'
 import Button from '../source/components/Button'
 import Widget from '../source/components/Widget'
 import QuizLogo from '../source/components/QuizLogo'
+import Confetti from "react-confetti"
 import LoadingWidget from '../source/components/LoadingWidget'
 import QuizContainer from '../source/components/QuizContainer'
 import QuizBackground from '../source/components/QuizBackground'
@@ -12,28 +12,34 @@ import AlternativesForm from '../source/components/AlternativeForm'
 
 
 function ResultWidget(props) {
+    const width = window.innerWidth - 10;
+    const height = window.innerHeight;
+    const playerName = location.search.slice(6);
     return (
-        <Widget>
-            <Widget.Header>
-                Voce acertou
-                {' '}
-                  {props.results.filter((result) => result).length}
-                {' '}
-                Perguntas
-            </Widget.Header>
+        <>
+            <Confetti width={width} height={height} recycle={false} />
+            <Widget>
+                <Widget.Header>
+                    {`${playerName}`}, Você acertou
+                    {' '}
+                    {props.results.filter((result) => result).length}
+                    {' '}
+                    Perguntas
+                </Widget.Header>
 
-            <Widget.Content>
-                <ul>
-                    {
-                        props.results.map((result, index) => {
-                            return  <li key={`result___${result}`}>
-                                        #{index + 1} {result ? 'Acertou': 'Errou'}
-                                    </li>
-                        })
-                    }
-                </ul>
-            </Widget.Content>
-        </Widget>
+                <Widget.Content>
+                    <ul>
+                        {
+                            props.results.map((result, index) => {
+                                return  <li key={`result___${result}`}>
+                                            #{index + 1} {result ? 'Acertou': 'Errou'}
+                                        </li>
+                            })
+                        }
+                    </ul>
+                </Widget.Content>
+            </Widget>
+        </>
     );
 }
 
