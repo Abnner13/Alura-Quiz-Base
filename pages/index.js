@@ -37,7 +37,7 @@ export default function Home() {
       <QuizLogo/>
         <Widget>
           <Widget.Header>
-            <h1>#RhynoQuiz</h1>
+            <h1>#RhynoQuiz 🦏</h1>
           </Widget.Header>
           <Widget.Content>
             <form onSubmit={function (e) {
@@ -53,7 +53,7 @@ export default function Home() {
                 value={name}
               />
               <Button type="submit" disabled={!name}>
-                Jogar {name}
+                🦏 Jogar {name} 🦏
               </Button>
             </form>
           </Widget.Content>

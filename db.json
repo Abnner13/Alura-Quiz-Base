@@ -1,5 +1,14 @@
 {
-    "bg": "https://cdn.pixabay.com/photo/2018/06/12/21/35/rhinoceros-3471555__340.jpg",
+    "bg": "/rinoBG1.jpg",
+    "bgs": [
+        "/rinoBG1.jpg",
+        "/rinoBG2.jpg",
+        "/rinoBG3.jpg",
+        "/rinoBG4.jpg",
+        "/rinoBG5.jpg",
+        "/rinoBG6.jpg",
+        "/rinoBG7.jpg"
+    ],
     "title": "Quiz CSS da Alura",
     "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
     "questions": [
@@ -19,12 +28,12 @@
             "image": "https://media1.tenor.com/images/d999d5793b3a742e15fb8a77de819ce1/tenor.gif?itemid=11741447",
             "title": "Seus chifres NÃO são feitos de osso, e sim de uma propiedade, que é o principal ingrediente dos nossos cabelos e unhas.",
             "description": "O segredo dos chifres",
-            "answer": 3,
+            "answer": 2,
             "alternatives": [
                 "Cartilagem",
                 "Ferro",
-                "Adamantil",
-                "Queratina"
+                "Queratina",
+                "Adamantil"
             ]
         },
         {

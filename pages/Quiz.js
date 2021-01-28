@@ -1,25 +1,15 @@
 import React from 'react'
 import db from '../db.json'
+import Answer from '../source/components/Answer'
 import Button from '../source/components/Button'
 import Widget from '../source/components/Widget'
 import QuizLogo from '../source/components/QuizLogo'
+import LoadingWidget from '../source/components/LoadingWidget'
 import QuizContainer from '../source/components/QuizContainer'
 import QuizBackground from '../source/components/QuizBackground'
 import AlternativesForm from '../source/components/AlternativeForm'
 
-function LoadingWidget() {
-    return (
-        <Widget>
-            <Widget.Header>
-                Carregando...
-      </Widget.Header>
 
-            <Widget.Content>
-                [Desafio do Loading]
-      </Widget.Content>
-        </Widget>
-    );
-}
 
 function ResultWidget(props) {
     return (
@@ -30,16 +20,15 @@ function ResultWidget(props) {
                   {props.results.filter((result) => result).length}
                 {' '}
                 Perguntas
-
             </Widget.Header>
 
             <Widget.Content>
                 <ul>
                     {
                         props.results.map((result, index) => {
-                            return<li key={`result___${result}`}>
-                                #{index + 1} RESULT: {result ? 'Acertou': 'Errou'}
-                            </li>
+                            return  <li key={`result___${result}`}>
+                                        #{index + 1} {result ? 'Acertou': 'Errou'}
+                                    </li>
                         })
                     }
                 </ul>
@@ -57,11 +46,12 @@ function QuestionWidget({
     onSubmit,
     addResult
 }) {
-    const questionId = `question__${questionIndex}`
     const [selectedAlternative, setSelectedAlternative] = React.useState(undefined)
     const [isQuestionSubmited, setIsQuestionSubmited] = React.useState(undefined)
-    const isCorrect = selectedAlternative === question.answer;
     const hasAlternativeSelected = selectedAlternative !== undefined;
+    const isCorrect = selectedAlternative === question.answer;
+    const questionId = `question__${questionIndex}`
+
     return (
         <Widget>
             <Widget.Header>
@@ -90,7 +80,7 @@ function QuestionWidget({
                         setIsQuestionSubmited(false) //setando pra false pra que a 
                                                      //proxima question nao fique com o estado anterior
                         setSelectedAlternative(undefined) // anulando a escolha da alternativa anterior
-                    }, 2 * 1000)
+                    }, 3 * 1000)
                 }}>
                     {question.alternatives.map((alternative, alternativeIndex) => {
                         const alternativeId = `alternative__${alternativeIndex}`;
@@ -118,8 +108,8 @@ function QuestionWidget({
                     })}
 
                     <Button type="submit" disabled={!hasAlternativeSelected}>Confirmar</Button>
-                    { isQuestionSubmited && isCorrect && <p>Voce Acertou</p>}
-                    { isQuestionSubmited && !isCorrect && <p>Voce Errou</p>}
+                    {isQuestionSubmited && isCorrect && <p>Você Acertou</p>}
+                    {isQuestionSubmited && !isCorrect && <p>Você Errou</p>}
                 </AlternativesForm>
             </Widget.Content>
         </Widget>
@@ -161,8 +151,8 @@ export default function QuizPageAlura() {
         }
     }
 
-    return( 
-        <QuizBackground backgroundImage={db.bg}>
+    return ( 
+        <QuizBackground backgroundImage={db.bgs[questionIndex + 1]}>
             <QuizContainer>
             <QuizLogo/>
 
