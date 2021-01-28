@@ -114,8 +114,8 @@ function QuestionWidget({
                     })}
 
                     <Button type="submit" disabled={!hasAlternativeSelected}>Confirmar</Button>
-                    {isQuestionSubmited && isCorrect && <p>Você Acertou</p>}
-                    {isQuestionSubmited && !isCorrect && <p>Você Errou</p>}
+                    {isQuestionSubmited && isCorrect && <Success />}
+                    {isQuestionSubmited && !isCorrect && <Error />}
                 </AlternativesForm>
             </Widget.Content>
         </Widget>
@@ -178,7 +178,49 @@ export default function QuizPageAlura() {
                 {screenState === screenStates.RESULT && <ResultWidget results={results}/>}
             </QuizContainer>
         </QuizBackground>
-    )
+    )    
+}
 
-    
+function Success() {
+    return (
+        <div
+            style={{ marginTop: '10px', display: 'flex', alignItems: 'center' }}
+        >
+            <div
+                style={{
+                    width: '30px',
+                    height: '30px',
+                    padding: '6px',
+                    borderRadius: '50px',
+                    backgroundColor: db.theme.colors.success,
+                    marginRight: '5px',
+                }}
+            >
+                <i className="fas fa-check"></i>
+            </div>
+            <p>Parabéns, você acertou!</p>
+        </div>
+    );
+}
+
+function Error() {
+    return (
+        <div
+            style={{ marginTop: '10px', display: 'flex', alignItems: 'center' }}
+        >
+            <div
+                style={{
+                    width: '30px',
+                    height: '30px',
+                    padding: '5px 8px',
+                    borderRadius: '50px',
+                    backgroundColor: db.theme.colors.wrong,
+                    marginRight: '5px',
+                }}
+            >
+                <i className="fas fa-times"></i>
+            </div>
+            <p>Que pena, você errou!</p>
+        </div>
+    );
 }
