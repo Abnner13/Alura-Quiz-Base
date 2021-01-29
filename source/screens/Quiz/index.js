@@ -4,6 +4,7 @@ import LoadingWidget from '../../components/LoadingWidget'
 import QuizContainer from '../../components/QuizContainer'
 import QuizBackground from '../../components/QuizBackground'
 import QuestionWidget from '../../components/QuestionWidget'
+import QuizLogo from '../../components/QuizLogo'
 
 const screenStates = { 
     QUIZ: 'QUIZ',
