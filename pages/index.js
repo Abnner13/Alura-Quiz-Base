@@ -1,7 +1,8 @@
 import db from '../db.json'
-import Link from 'next/link'
+import Link from '../source/components/Link'
 import Head from 'next/head'
 import styled from 'styled-components' 
+import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import Input from '../source/components/Input'
 import Footer from '../source/components/Footer'
@@ -11,9 +12,6 @@ import QuizLogo from '../source/components/QuizLogo'
 import GitHubCorner from '../source/components/GitHubCorner'
 import QuizContainer from '../source/components/QuizContainer'
 import QuizBackground from '../source/components/QuizBackground'
-
-
-
 
 export const Wrapper = styled.div`
   border-radius:  ${({ theme }) => theme.borderRadius};
@@ -34,9 +32,19 @@ export default function Home() {
       <Head>
         <title>RhynoQuiz - Alura</title>
       </Head>
+
       <QuizContainer>
       <QuizLogo/>
-        <Widget>
+        <Widget
+         as={motion.section}
+         transiton={{ delay: 0.5, duration: 0.5 }}
+         variants={{
+           show: { opacity: 1, y: '0'},
+           hidden: { opacity: 0, y: '100%'},
+         }}
+         initial="hidden"
+         animate="show"
+        >
           <Widget.Header>
             <h1>#RhynoQuiz 🦏</h1>
           </Widget.Header>
@@ -60,22 +68,51 @@ export default function Home() {
           </Widget.Content>
         </Widget>
 
-        <Widget>
+        <Widget
+          as={motion.section}
+          transiton={{ delay: 0.5, duration: 0.5 }}
+          variants={{
+            show: { opacity: 1, y: '0'},
+            hidden: { opacity: 0, y: '100%'},
+          }}
+          initial="hidden"
+          animate="show"
+        >
         <Widget.Content>
             <p>Quizes da Galera</p>
-            <Wrapper>
-              <Link href="https://github.com/Abnner13/Alura-Quiz-Base">
-                <a style={{ outline: '0', textDecoration: 'none', color: '#FFFFFF' }}>Abnner13/Alura-Quiz-Base</a>
-              </Link>
-            </Wrapper>
-            <Wrapper>
-              <Link href="https://github.com/Alura-challenges/aluraquiz-base">
-                <a style={{ outline: '0', textDecoration: 'none', color: '#FFFFFF' }}>Alura-challenges/aluraquiz-base</a>
-              </Link>
-            </Wrapper>
+            <ul>
+              {db.external.map(( link ) => {
+                const [projectName, githubUser] = link
+                .replace(/\//g, '')
+                .replace('https:', '')
+                .replace('.vercel.app', '')
+                .split('.');
+
+                return (
+                  <li key={link}>
+                    <Widget.Topic 
+                      as={Link}
+                      href={`/quiz/${projectName}___${githubUser}`}
+                    >
+                       {`${githubUser}/${projectName}`} 
+                    </Widget.Topic>
+                  </li>
+                )
+
+              })}
+            </ul>
           </Widget.Content>
         </Widget>
-        <Footer/>
+        <Footer
+          as={motion.section}
+          transiton={{ delay: 0.5, duration: 0.5 }}
+          variants={{
+            show: { opacity: 1, y: '0'},
+            hidden: { opacity: 0, y: '100%'},
+          }}
+          initial="hidden"
+          animate="show"
+        />
       </QuizContainer>
       <GitHubCorner/>
     </QuizBackground>

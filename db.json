@@ -74,7 +74,8 @@
         }
     ],
     "external": [
-        ""
+        "https://alura-quiz-base.abnner13.vercel.app/",
+        "https://aluraquiz-base.alura-challenges.vercel.app/"
     ],
     "theme": {
         "colors": {

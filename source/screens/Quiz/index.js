@@ -1,16 +1,16 @@
 import React from 'react'
-import db from '../db.json'
+// import db from '../db.json'
 import Confetti from "react-confetti"
-import Button from '../source/components/Button'
-import Widget from '../source/components/Widget'
-import QuizLogo from '../source/components/QuizLogo'
-import LoadingWidget from '../source/components/LoadingWidget'
-import QuizContainer from '../source/components/QuizContainer'
-import BlackLinkArrow from '../source/components/BlackLinkArrow'
-import QuizBackground from '../source/components/QuizBackground'
-import AlternativesForm from '../source/components/AlternativeForm'
+import Button from '../../components/Button'
+import Widget from '../../components/Widget'
+import QuizLogo from '../../components/QuizLogo'
+import LoadingWidget from '../../components/LoadingWidget'
+import QuizContainer from '../../components/QuizContainer'
+import QuizBackground from '../../components/QuizBackground'
+import AlternativesForm from '../../components/AlternativeForm'
+import BlackLinkArrow from '../../components/BlackLinkArrow'
 
-function ResultWidget(props) {
+function ResultWidget({ results }) {
     const width = window.innerWidth - 10;
     const height = window.innerHeight;
     const playerName = location.search.slice(6);
@@ -21,7 +21,7 @@ function ResultWidget(props) {
                 <Widget.Header>
                     {`${playerName}`}, Você acertou
                     {' '}
-                    {props.results.filter((result) => result).length}
+                    {results.filter((result) => result).length}
                     {' '}
                     Perguntas
                 </Widget.Header>
@@ -29,7 +29,7 @@ function ResultWidget(props) {
                 <Widget.Content>
                     <ul>
                         {
-                            props.results.map((result, index) => {
+                            results.map((result, index) => {
                                 return  <li key={`result___${result}`}>
                                                 #{index + 1} {result ? 'Acertou': 'Errou'}
                                             </li>
@@ -114,8 +114,10 @@ function QuestionWidget({
                     })}
 
                     <Button type="submit" disabled={!hasAlternativeSelected}>Confirmar</Button>
-                    {isQuestionSubmited && isCorrect && <Success />}
-                    {isQuestionSubmited && !isCorrect && <Error />}
+                    {/* {isQuestionSubmited && isCorrect && <Success />}
+                    {isQuestionSubmited && !isCorrect && <Error />} */}
+                    {isQuestionSubmited && isCorrect && <p>Acertou</p>}
+                    {isQuestionSubmited && !isCorrect && <p>Errour</p>}
                 </AlternativesForm>
             </Widget.Content>
         </Widget>
@@ -128,13 +130,14 @@ const screenStates = {
     RESULT: 'RESULT'
 }
 
-export default function QuizPageAlura() {
+export default function QuizPageAlura({ externalQuestions, bgExternal, dbTheme }) {
     const [screenState, setScreenState] = React.useState(screenStates.LOADING);// Aqui é o primeiro estado do widget
     const [currentQuestion, setCurrentQuestion] = React.useState(0);
     const [results, setResults] = React.useState([]);
-    const totalQuestions = db.questions.length;
+    const totalQuestions = externalQuestions.length;
     const questionIndex = currentQuestion;
-    const question = db.questions[questionIndex];
+    const question = externalQuestions[questionIndex];
+    const bg = bgExternal;
 
     function addResult(result) {
         setResults([...results, result])
@@ -158,7 +161,8 @@ export default function QuizPageAlura() {
     }
 
     return ( 
-        <QuizBackground backgroundImage={db.bgs[questionIndex + 1]}>
+        // <QuizBackground backgroundImage={externalQuestions.bgs[questionIndex + 1]}>
+        <QuizBackground backgroundImage={bg}>
             <QuizContainer>
             <QuizLogo/>
 
@@ -192,7 +196,7 @@ function Success() {
                     height: '30px',
                     padding: '6px',
                     borderRadius: '50px',
-                    backgroundColor: db.theme.colors.success,
+                    backgroundColor: dbTheme.colors.success,
                     marginRight: '5px',
                 }}
             >
@@ -214,7 +218,7 @@ function Error() {
                     height: '30px',
                     padding: '5px 8px',
                     borderRadius: '50px',
-                    backgroundColor: db.theme.colors.wrong,
+                    backgroundColor: dbTheme.colors.wrong,
                     marginRight: '5px',
                 }}
             >
