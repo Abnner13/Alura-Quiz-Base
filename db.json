@@ -42,7 +42,7 @@
         {
             "image": "https://media.tenor.com/images/5f7c0a3d3a87b99a075023e47be35c87/tenor.gif",
             "title": " Qual medicina tradicional acredita que os chifres dos rinocerontes carregam propriedades curativas",
-            "description": "Infelizmente, os chifres de rinoceronte são altamente cobiçados e podem ser mais valorizados do que o ouro em algumas partes do mundo.",
+            "description": "Infelizmente, em algumas partes do mundo os chifres valem mais que ouro.",
             "answer": 2,
             "alternatives": [
                 "A medicina tradicional Indiana",
@@ -65,7 +65,7 @@
         }
     ],
     "external": [
-        "https://alura-quiz-base.abnner13.vercel.app/",
+        "https://divequiz.fncarneiro.vercel.app/",
         "https://aluraquiz-base.alura-challenges.vercel.app/"
     ],
     "theme": {

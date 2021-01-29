@@ -4,14 +4,12 @@ import QuizScreen from '../../source/screens/Quiz'
 
 export default function QuizDaGalera({ dbExternal }) {
     return (
-        <div>
-            <ThemeProvider theme={dbExternal.theme}>
-            <QuizScreen 
+        <ThemeProvider theme={dbExternal.theme}>
+            <QuizScreen
                 externalQuestions={dbExternal.questions}
                 bgExternal={dbExternal.bg}
-                dbTheme={dbExternal.theme}/>
-            </ThemeProvider>
-        </div>
+                dbTheme={dbExternal.theme} />
+        </ThemeProvider>
     )
 }
 
