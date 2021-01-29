@@ -1,14 +1,5 @@
 {
     "bg": "/rinoBG1.jpg",
-    "bgs": [
-        "/rinoBG1.jpg",
-        "/rinoBG2.jpg",
-        "/rinoBG3.jpg",
-        "/rinoBG4.jpg",
-        "/rinoBG5.jpg",
-        "/rinoBG6.jpg",
-        "/rinoBG7.jpg"
-    ],
     "title": "Quiz da Alura",
     "description": "Teste os seus conhecimentos sobre os majestosos rinocerontes...",
     "questions": [

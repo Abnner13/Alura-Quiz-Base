@@ -1,0 +1,673 @@
+{
+    "v": "5.6.5",
+    "fr": 25,
+    "ip": 0,
+    "op": 50,
+    "w": 1000,
+    "h": 1000,
+    "nm": "Comp 1",
+    "ddd": 0,
+    "assets": [
+        {
+            "id": "comp_0",
+            "layers": [
+                {
+                    "ddd": 0,
+                    "ind": 1,
+                    "ty": 1,
+                    "nm": "CONTROLS",
+                    "sr": 1,
+                    "ks": {
+                        "o": {
+                            "a": 0,
+                            "k": 0,
+                            "ix": 11
+                        },
+                        "r": {
+                            "a": 0,
+                            "k": 0,
+                            "ix": 10
+                        },
+                        "p": {
+                            "a": 0,
+                            "k": [
+                                1920,
+                                1080,
+                                0
+                            ],
+                            "ix": 2
+                        },
+                        "a": {
+                            "a": 0,
+                            "k": [
+                                540,
+                                540,
+                                0
+                            ],
+                            "ix": 1
+                        },
+                        "s": {
+                            "a": 0,
+                            "k": [
+                                357.037,
+                                200,
+                                100
+                            ],
+                            "ix": 6
+                        }
+                    },
+                    "ao": 0,
+                    "ef": [
+                        {
+                            "ty": 5,
+                            "nm": "Color_01",
+                            "np": 3,
+                            "mn": "ADBE Color Control",
+                            "ix": 1,
+                            "en": 1,
+                            "ef": [
+                                {
+                                    "ty": 2,
+                                    "nm": "Color",
+                                    "mn": "ADBE Color Control-0001",
+                                    "ix": 1,
+                                    "v": {
+                                        "a": 0,
+                                        "k": [
+                                            0.207843154669,
+                                            0.521568655968,
+                                            0.98431378603,
+                                            1
+                                        ],
+                                        "ix": 1
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "ty": 5,
+                            "nm": "Color_02",
+                            "np": 3,
+                            "mn": "ADBE Color Control",
+                            "ix": 2,
+                            "en": 1,
+                            "ef": [
+                                {
+                                    "ty": 2,
+                                    "nm": "Color",
+                                    "mn": "ADBE Color Control-0001",
+                                    "ix": 1,
+                                    "v": {
+                                        "a": 0,
+                                        "k": [
+                                            1,
+                                            1,
+                                            1,
+                                            1
+                                        ],
+                                        "ix": 1
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "ty": 5,
+                            "nm": "Roundness",
+                            "np": 3,
+                            "mn": "ADBE Slider Control",
+                            "ix": 3,
+                            "en": 1,
+                            "ef": [
+                                {
+                                    "ty": 0,
+                                    "nm": "Slider",
+                                    "mn": "ADBE Slider Control-0001",
+                                    "ix": 1,
+                                    "v": {
+                                        "a": 0,
+                                        "k": 100,
+                                        "ix": 1
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "sw": 1080,
+                    "sh": 1080,
+                    "sc": "#ffffff",
+                    "ip": 0,
+                    "op": 376,
+                    "st": 0,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 2,
+                    "ty": 4,
+                    "nm": "Like",
+                    "sr": 1,
+                    "ks": {
+                        "o": {
+                            "a": 0,
+                            "k": 100,
+                            "ix": 11
+                        },
+                        "r": {
+                            "a": 1,
+                            "k": [
+                                {
+                                    "i": {
+                                        "x": [
+                                            0.833
+                                        ],
+                                        "y": [
+                                            0.833
+                                        ]
+                                    },
+                                    "o": {
+                                        "x": [
+                                            0.167
+                                        ],
+                                        "y": [
+                                            0.167
+                                        ]
+                                    },
+                                    "t": 0,
+                                    "s": [
+                                        189
+                                    ]
+                                },
+                                {
+                                    "t": 50,
+                                    "s": [
+                                        167
+                                    ]
+                                }
+                            ],
+                            "ix": 10,
+                            "x": "var $bm_rt;\nfunction easeandwizz_outElastic(t, b, c, d, a, p) {\n    var s;\n    var p = 0.81;\n    var a = 50;\n    if (t == 0)\n        return b;\n    if ((t /= d) == 1)\n        return $bm_sum(b, c);\n    if (!p)\n        p = $bm_mul(d, 0.3);\n    if (!a || a < Math.abs(c)) {\n        a = c;\n        s = $bm_div(p, 4);\n    } else\n        s = $bm_mul($bm_div(p, $bm_mul(2, Math.PI)), Math.asin($bm_div(c, a)));\n    return $bm_sum($bm_sum($bm_mul($bm_mul(a, Math.pow(2, $bm_mul(-10, t))), Math.sin($bm_div($bm_mul($bm_sub($bm_mul(t, d), s), $bm_mul(2, Math.PI)), p))), c), b);\n}\nfunction easeAndWizz() {\n    var t, d, sX, eX, sY, eY, sZ, eZ, val1, val2, val2, val3;\n    var n = 0;\n    if (numKeys > 0) {\n        n = nearestKey(time).index;\n        if (key(n).time > time) {\n            n--;\n        }\n    }\n    try {\n        var key1 = key(n);\n        var key2 = key($bm_sum(n, 1));\n    } catch (e) {\n        return null;\n    }\n    var dim = 1;\n    try {\n        key(1)[1].length;\n        dim = 2;\n        key(1)[2].length;\n        dim = 3;\n    } catch (e) {\n    }\n    t = $bm_sub(time, key1.time);\n    d = $bm_sub(key2.time, key1.time);\n    sX = key1[0];\n    eX = $bm_sub(key2[0], key1[0]);\n    if (dim >= 2) {\n        sY = key1[1];\n        eY = $bm_sub(key2[1], key1[1]);\n        if (dim >= 3) {\n            sZ = key1[2];\n            eZ = $bm_sub(key2[2], key1[2]);\n        }\n    }\n    if (time < key1.time || time > key2.time) {\n        return value;\n    } else {\n        val1 = easeandwizz_outElastic(t, sX, eX, d);\n        switch (dim) {\n        case 1:\n            return val1;\n            break;\n        case 2:\n            val2 = easeandwizz_outElastic(t, sY, eY, d);\n            return [\n                val1,\n                val2\n            ];\n            break;\n        case 3:\n            val2 = easeandwizz_outElastic(t, sY, eY, d);\n            val3 = easeandwizz_outElastic(t, sZ, eZ, d);\n            return [\n                val1,\n                val2,\n                val3\n            ];\n            break;\n        default:\n            return null;\n        }\n    }\n}\n$bm_rt = easeAndWizz() || value;"
+                        },
+                        "p": {
+                            "a": 0,
+                            "k": [
+                                1641.627,
+                                1327.027,
+                                0
+                            ],
+                            "ix": 2
+                        },
+                        "a": {
+                            "a": 0,
+                            "k": [
+                                20.48,
+                                -11.158,
+                                0
+                            ],
+                            "ix": 1
+                        },
+                        "s": {
+                            "a": 1,
+                            "k": [
+                                {
+                                    "i": {
+                                        "x": [
+                                            0.833,
+                                            0.833,
+                                            0.833
+                                        ],
+                                        "y": [
+                                            0.833,
+                                            0.833,
+                                            0.833
+                                        ]
+                                    },
+                                    "o": {
+                                        "x": [
+                                            0.167,
+                                            0.167,
+                                            0.167
+                                        ],
+                                        "y": [
+                                            0.167,
+                                            0.167,
+                                            0.167
+                                        ]
+                                    },
+                                    "t": 0,
+                                    "s": [
+                                        0,
+                                        0,
+                                        100
+                                    ]
+                                },
+                                {
+                                    "t": 50,
+                                    "s": [
+                                        1628,
+                                        1628,
+                                        100
+                                    ]
+                                }
+                            ],
+                            "ix": 6,
+                            "x": "var $bm_rt;\nfunction easeandwizz_outElastic(t, b, c, d, a, p) {\n    var s;\n    var p = 0.81;\n    var a = 50;\n    if (t == 0)\n        return b;\n    if ((t /= d) == 1)\n        return $bm_sum(b, c);\n    if (!p)\n        p = $bm_mul(d, 0.3);\n    if (!a || a < Math.abs(c)) {\n        a = c;\n        s = $bm_div(p, 4);\n    } else\n        s = $bm_mul($bm_div(p, $bm_mul(2, Math.PI)), Math.asin($bm_div(c, a)));\n    return $bm_sum($bm_sum($bm_mul($bm_mul(a, Math.pow(2, $bm_mul(-10, t))), Math.sin($bm_div($bm_mul($bm_sub($bm_mul(t, d), s), $bm_mul(2, Math.PI)), p))), c), b);\n}\nfunction easeAndWizz() {\n    var t, d, sX, eX, sY, eY, sZ, eZ, val1, val2, val2, val3;\n    var n = 0;\n    if (numKeys > 0) {\n        n = nearestKey(time).index;\n        if (key(n).time > time) {\n            n--;\n        }\n    }\n    try {\n        var key1 = key(n);\n        var key2 = key($bm_sum(n, 1));\n    } catch (e) {\n        return null;\n    }\n    var dim = 1;\n    try {\n        key(1)[1].length;\n        dim = 2;\n        key(1)[2].length;\n        dim = 3;\n    } catch (e) {\n    }\n    t = $bm_sub(time, key1.time);\n    d = $bm_sub(key2.time, key1.time);\n    sX = key1[0];\n    eX = $bm_sub(key2[0], key1[0]);\n    if (dim >= 2) {\n        sY = key1[1];\n        eY = $bm_sub(key2[1], key1[1]);\n        if (dim >= 3) {\n            sZ = key1[2];\n            eZ = $bm_sub(key2[2], key1[2]);\n        }\n    }\n    if (time < key1.time || time > key2.time) {\n        return value;\n    } else {\n        val1 = easeandwizz_outElastic(t, sX, eX, d);\n        switch (dim) {\n        case 1:\n            return val1;\n            break;\n        case 2:\n            val2 = easeandwizz_outElastic(t, sY, eY, d);\n            return [\n                val1,\n                val2\n            ];\n            break;\n        case 3:\n            val2 = easeandwizz_outElastic(t, sY, eY, d);\n            val3 = easeandwizz_outElastic(t, sZ, eZ, d);\n            return [\n                val1,\n                val2,\n                val3\n            ];\n            break;\n        default:\n            return null;\n        }\n    }\n}\n$bm_rt = easeAndWizz() || value;"
+                        }
+                    },
+                    "ao": 0,
+                    "shapes": [
+                        {
+                            "ty": "gr",
+                            "it": [
+                                {
+                                    "ty": "gr",
+                                    "it": [
+                                        {
+                                            "ind": 0,
+                                            "ty": "sh",
+                                            "ix": 1,
+                                            "ks": {
+                                                "a": 0,
+                                                "k": {
+                                                    "i": [
+                                                        [
+                                                            19.5,
+                                                            -1.5
+                                                        ],
+                                                        [
+                                                            2,
+                                                            -13.5
+                                                        ],
+                                                        [
+                                                            15,
+                                                            -18.5
+                                                        ],
+                                                        [
+                                                            5.5,
+                                                            -17.5
+                                                        ],
+                                                        [
+                                                            0,
+                                                            0
+                                                        ],
+                                                        [
+                                                            -5.5,
+                                                            -0.5
+                                                        ],
+                                                        [
+                                                            0,
+                                                            0
+                                                        ],
+                                                        [
+                                                            15.5,
+                                                            23
+                                                        ],
+                                                        [
+                                                            0,
+                                                            0
+                                                        ],
+                                                        [
+                                                            15.5,
+                                                            20
+                                                        ],
+                                                        [
+                                                            0,
+                                                            0
+                                                        ],
+                                                        [
+                                                            0,
+                                                            0
+                                                        ],
+                                                        [
+                                                            0.5,
+                                                            30.5
+                                                        ]
+                                                    ],
+                                                    "o": [
+                                                        [
+                                                            -22,
+                                                            0.5
+                                                        ],
+                                                        [
+                                                            -3.5,
+                                                            11.5
+                                                        ],
+                                                        [
+                                                            -15,
+                                                            18.5
+                                                        ],
+                                                        [
+                                                            0,
+                                                            4
+                                                        ],
+                                                        [
+                                                            0,
+                                                            0
+                                                        ],
+                                                        [
+                                                            5.5,
+                                                            0.5
+                                                        ],
+                                                        [
+                                                            0,
+                                                            0
+                                                        ],
+                                                        [
+                                                            18.5,
+                                                            -10.5
+                                                        ],
+                                                        [
+                                                            0,
+                                                            0
+                                                        ],
+                                                        [
+                                                            21,
+                                                            -34.5
+                                                        ],
+                                                        [
+                                                            0,
+                                                            0
+                                                        ],
+                                                        [
+                                                            0,
+                                                            0
+                                                        ],
+                                                        [
+                                                            -0.5,
+                                                            -30.5
+                                                        ]
+                                                    ],
+                                                    "v": [
+                                                        [
+                                                            119.598,
+                                                            -190.609
+                                                        ],
+                                                        [
+                                                            103.098,
+                                                            -148.109
+                                                        ],
+                                                        [
+                                                            72.598,
+                                                            -113.109
+                                                        ],
+                                                        [
+                                                            48.098,
+                                                            -70.109
+                                                        ],
+                                                        [
+                                                            48.098,
+                                                            42.891
+                                                        ],
+                                                        [
+                                                            56.098,
+                                                            48.391
+                                                        ],
+                                                        [
+                                                            193.098,
+                                                            48.391
+                                                        ],
+                                                        [
+                                                            199.598,
+                                                            16.391
+                                                        ],
+                                                        [
+                                                            206.098,
+                                                            -16.609
+                                                        ],
+                                                        [
+                                                            208.098,
+                                                            -52.609
+                                                        ],
+                                                        [
+                                                            205.098,
+                                                            -96.109
+                                                        ],
+                                                        [
+                                                            132.098,
+                                                            -95.109
+                                                        ],
+                                                        [
+                                                            143.598,
+                                                            -151.109
+                                                        ]
+                                                    ],
+                                                    "c": true
+                                                },
+                                                "ix": 2
+                                            },
+                                            "nm": "Path 1",
+                                            "mn": "ADBE Vector Shape - Group",
+                                            "hd": false
+                                        },
+                                        {
+                                            "ty": "rc",
+                                            "d": 1,
+                                            "s": {
+                                                "a": 0,
+                                                "k": [
+                                                    67.805,
+                                                    140.219
+                                                ],
+                                                "ix": 2
+                                            },
+                                            "p": {
+                                                "a": 0,
+                                                "k": [
+                                                    0,
+                                                    0
+                                                ],
+                                                "ix": 3
+                                            },
+                                            "r": {
+                                                "a": 0,
+                                                "k": 11,
+                                                "ix": 4
+                                            },
+                                            "nm": "Rectangle Path 1",
+                                            "mn": "ADBE Vector Shape - Rect",
+                                            "hd": false
+                                        },
+                                        {
+                                            "ty": "fl",
+                                            "c": {
+                                                "a": 0,
+                                                "k": [
+                                                    1,
+                                                    1,
+                                                    1,
+                                                    1
+                                                ],
+                                                "ix": 4,
+                                                "x": "var $bm_rt;\n$bm_rt = thisComp.layer('CONTROLS').effect('Color_01')('ADBE Color Control-0001');"
+                                            },
+                                            "o": {
+                                                "a": 0,
+                                                "k": 100,
+                                                "ix": 5
+                                            },
+                                            "r": 1,
+                                            "bm": 0,
+                                            "nm": "Fill 1",
+                                            "mn": "ADBE Vector Graphic - Fill",
+                                            "hd": false
+                                        },
+                                        {
+                                            "ty": "tr",
+                                            "p": {
+                                                "a": 0,
+                                                "k": [
+                                                    14.728,
+                                                    -3.286
+                                                ],
+                                                "ix": 2
+                                            },
+                                            "a": {
+                                                "a": 0,
+                                                "k": [
+                                                    0,
+                                                    0
+                                                ],
+                                                "ix": 1
+                                            },
+                                            "s": {
+                                                "a": 0,
+                                                "k": [
+                                                    13.751,
+                                                    13.751
+                                                ],
+                                                "ix": 3
+                                            },
+                                            "r": {
+                                                "a": 0,
+                                                "k": 192.826,
+                                                "ix": 6
+                                            },
+                                            "o": {
+                                                "a": 0,
+                                                "k": 100,
+                                                "ix": 7
+                                            },
+                                            "sk": {
+                                                "a": 0,
+                                                "k": 0,
+                                                "ix": 4
+                                            },
+                                            "sa": {
+                                                "a": 0,
+                                                "k": 0,
+                                                "ix": 5
+                                            },
+                                            "nm": "Transform"
+                                        }
+                                    ],
+                                    "nm": "Rectangle 1",
+                                    "np": 3,
+                                    "cix": 2,
+                                    "bm": 0,
+                                    "ix": 1,
+                                    "mn": "ADBE Vector Group",
+                                    "hd": false
+                                },
+                                {
+                                    "ty": "tr",
+                                    "p": {
+                                        "a": 0,
+                                        "k": [
+                                            0,
+                                            0
+                                        ],
+                                        "ix": 2
+                                    },
+                                    "a": {
+                                        "a": 0,
+                                        "k": [
+                                            0,
+                                            0
+                                        ],
+                                        "ix": 1
+                                    },
+                                    "s": {
+                                        "a": 0,
+                                        "k": [
+                                            100,
+                                            100
+                                        ],
+                                        "ix": 3
+                                    },
+                                    "r": {
+                                        "a": 0,
+                                        "k": 0,
+                                        "ix": 6
+                                    },
+                                    "o": {
+                                        "a": 0,
+                                        "k": 100,
+                                        "ix": 7
+                                    },
+                                    "sk": {
+                                        "a": 0,
+                                        "k": 0,
+                                        "ix": 4
+                                    },
+                                    "sa": {
+                                        "a": 0,
+                                        "k": 0,
+                                        "ix": 5
+                                    },
+                                    "nm": "Transform"
+                                }
+                            ],
+                            "nm": "Like",
+                            "np": 1,
+                            "cix": 2,
+                            "bm": 0,
+                            "ix": 1,
+                            "mn": "ADBE Vector Group",
+                            "hd": false
+                        }
+                    ],
+                    "ip": 0,
+                    "op": 1500,
+                    "st": 0,
+                    "bm": 0
+                }
+            ]
+        }
+    ],
+    "layers": [
+        {
+            "ddd": 0,
+            "ind": 1,
+            "ty": 0,
+            "nm": "Social_Icon_06",
+            "refId": "comp_0",
+            "sr": 1,
+            "ks": {
+                "o": {
+                    "a": 0,
+                    "k": 100,
+                    "ix": 11
+                },
+                "r": {
+                    "a": 0,
+                    "k": 0,
+                    "ix": 10
+                },
+                "p": {
+                    "a": 0,
+                    "k": [
+                        500,
+                        500,
+                        0
+                    ],
+                    "ix": 2
+                },
+                "a": {
+                    "a": 0,
+                    "k": [
+                        1920,
+                        1080,
+                        0
+                    ],
+                    "ix": 1
+                },
+                "s": {
+                    "a": 0,
+                    "k": [
+                        100,
+                        100,
+                        100
+                    ],
+                    "ix": 6
+                }
+            },
+            "ao": 0,
+            "w": 3840,
+            "h": 2160,
+            "ip": 0,
+            "op": 376,
+            "st": 0,
+            "bm": 0
+        }
+    ],
+    "markers": []
+}

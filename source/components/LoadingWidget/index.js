@@ -1,8 +1,18 @@
 import React from 'react';
 import Widget from '../Widget';
-import Answer from '../Answer';
+import Lottie from 'react-lottie';
+import loadingWidget from '../../../Lotties/loadingAnimation.json'
 
 export default function LoadingWidget() {
+    const [animationState, setAnimationState] = React.useState({ isStopped: false, isPaused: false });
+    const defaultOptions = {
+        loop: false,
+        autoplay: true,
+        animationData: loadingWidget,
+        rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice'
+        }
+    };
     return (
         <Widget>
             <Widget.Header>
@@ -10,7 +20,11 @@ export default function LoadingWidget() {
             </Widget.Header>
 
             <Widget.Content>
-                <Answer src="http://img1.joyreactor.com/pics/post/rhino-animals-colors-loading-2193299.gif" />
+                <div>
+                    <Lottie options={defaultOptions}
+                        isStopped={animationState.isStopped}
+                        isPaused={animationState.isPaused} />
+                </div>
             </Widget.Content>
         </Widget>
     );

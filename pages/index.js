@@ -13,17 +13,6 @@ import GitHubCorner from '../source/components/GitHubCorner'
 import QuizContainer from '../source/components/QuizContainer'
 import QuizBackground from '../source/components/QuizBackground'
 
-export const Wrapper = styled.div`
-  border-radius:  ${({ theme }) => theme.borderRadius};
-  background:     ${({ theme }) => theme.colors.third};
-  padding-top: 8px;
-
-  width: 17em;
-  height: 2.3em;
-  margin-bottom: 1em;
-  text-align: center;
-`;
-
 export default function Home() {
   const router = useRouter()
   const [name, setName] = React.useState('')
@@ -98,7 +87,6 @@ export default function Home() {
                     </Widget.Topic>
                   </li>
                 )
-
               })}
             </ul>
           </Widget.Content>
