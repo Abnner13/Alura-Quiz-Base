@@ -12,9 +12,6 @@ const InputName = styled.input`
     font-size: 14px;
     margin-bottom:25px;
     padding: 15px;
-  /* height: 3.3em; */
-  /* width: 20.2em; */
-  /* margin-bottom: 2em; */
 `;
 
 

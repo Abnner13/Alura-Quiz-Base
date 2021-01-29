@@ -1,15 +1,13 @@
 import React from 'react'
 import db from '../db.json'
+import Confetti from "react-confetti"
 import Button from '../source/components/Button'
 import Widget from '../source/components/Widget'
 import QuizLogo from '../source/components/QuizLogo'
-import Confetti from "react-confetti"
 import LoadingWidget from '../source/components/LoadingWidget'
 import QuizContainer from '../source/components/QuizContainer'
 import QuizBackground from '../source/components/QuizBackground'
 import AlternativesForm from '../source/components/AlternativeForm'
-
-
 
 function ResultWidget(props) {
     const width = window.innerWidth - 10;
@@ -32,8 +30,8 @@ function ResultWidget(props) {
                         {
                             props.results.map((result, index) => {
                                 return  <li key={`result___${result}`}>
-                                            #{index + 1} {result ? 'Acertou': 'Errou'}
-                                        </li>
+                                                #{index + 1} {result ? 'Acertou': 'Errou'}
+                                            </li>
                             })
                         }
                     </ul>

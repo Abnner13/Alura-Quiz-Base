@@ -9,8 +9,8 @@
         "/rinoBG6.jpg",
         "/rinoBG7.jpg"
     ],
-    "title": "Quiz CSS da Alura",
-    "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
+    "title": "Quiz da Alura",
+    "description": "Teste os seus conhecimentos sobre os majestosos rinocerontes...",
     "questions": [
         {
             "image": "https://media1.tenor.com/images/04354006605ff2ee878f7ed950fd8fd3/tenor.gif?itemid=9725263",
@@ -26,12 +26,12 @@
         },
         {
             "image": "https://media1.tenor.com/images/d999d5793b3a742e15fb8a77de819ce1/tenor.gif?itemid=11741447",
-            "title": "Seus chifres NÃO são feitos de osso, e sim de uma propiedade, que é o principal ingrediente dos nossos cabelos e unhas.",
-            "description": "O segredo dos chifres",
+            "title": "Qual é o principal ingrediente dos Chifre dos rinocerontes.",
+            "description": "Essa propriedade também é principal do nossos cabelos e unhas",
             "answer": 2,
             "alternatives": [
                 "Cartilagem",
-                "Ferro",
+                "Osso",
                 "Queratina",
                 "Adamantil"
             ]
@@ -50,8 +50,8 @@
         },
         {
             "image": "https://media.tenor.com/images/5f7c0a3d3a87b99a075023e47be35c87/tenor.gif",
-            "title": "Infelizmente, os chifres de rinoceronte são altamente cobiçados e podem ser mais valorizados do que o ouro em algumas partes do mundo. ____________ acredita que esses chifres carregam propriedades curativas e também são usados como afrodisíaco.",
-            "description": "Propriedades curativas",
+            "title": " Qual medicina tradicional acredita que os chifres dos rinocerontes carregam propriedades curativas",
+            "description": "Infelizmente, os chifres de rinoceronte são altamente cobiçados e podem ser mais valorizados do que o ouro em algumas partes do mundo.",
             "answer": 2,
             "alternatives": [
                 "A medicina tradicional Indiana",
@@ -62,8 +62,8 @@
         },
         {
             "image": "https://media1.tenor.com/images/40ef54dfacb1733fb7405eace6a73ffe/tenor.gif?itemid=3309582",
-            "title": "A pele de rinoceronte é incrivelmente grossa e resistente, mas curiosamente é sensível a _____. Por isso, esses animais se afundam na lama para proteger sua pele.",
-            "description": "Pele grossa e resistente",
+            "title": "A pele de rinoceronte é incrivelmente grossa e resistente, porém é sensível a: ",
+            "description": "esses animais se afundam na lama para proteger sua pele",
             "answer": 0,
             "alternatives": [
                 "Queimaduras solares e picadas de insetos",
